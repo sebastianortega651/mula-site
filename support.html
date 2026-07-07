@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mula Support</title>
+<meta name="description" content="Help and FAQ for Mula, the private money helper for iPhone. Getting started, scanning tips, backups, and how to reach us.">
+<style>
+  :root{
+    --mint:#13C29B; --mint-dark:#0FA585; --mint-soft:#D8F4EC;
+    --ink:#16223A; --muted:#82909f; --coral:#FF8A66;
+    --bg:#EAF3EE; --card:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:'Nunito','Baloo 2',ui-rounded,-apple-system,'SF Pro Rounded','Segoe UI',system-ui,sans-serif;
+    color:var(--ink); background:var(--bg); line-height:1.65;
+  }
+  h1,h2,.wordmark{font-family:'Baloo 2','Nunito',ui-rounded,-apple-system,system-ui,sans-serif;font-weight:800;line-height:1.2}
+  a{color:var(--mint-dark)}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+
+  header{padding:18px 0}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;max-width:1040px;margin:0 auto;padding:0 20px}
+  .wordmark{font-size:1.6rem;color:var(--mint);text-decoration:none;letter-spacing:.5px}
+  .wordmark span{color:var(--ink)}
+  .nav-links{display:flex;gap:22px;font-weight:700;font-size:.95rem}
+  .nav-links a{color:var(--ink);text-decoration:none}
+  .nav-links a:hover{color:var(--mint-dark)}
+
+  main{padding:28px 0 64px}
+  h1{font-size:clamp(1.7rem,4vw,2.3rem);margin-bottom:6px}
+  .lede{color:var(--muted);font-weight:700;margin-bottom:26px}
+  .faq{background:var(--card);border-radius:20px;padding:26px 26px 18px;box-shadow:0 6px 24px rgba(22,34,58,.06);margin-bottom:18px}
+  .faq h2{font-size:1.15rem;margin-bottom:10px}
+  .faq h2 .em{margin-right:8px}
+  .faq p{margin-bottom:12px;font-weight:600;color:#2c3a52}
+  .faq ul,.faq ol{margin:0 0 12px 22px}
+  .faq li{margin-bottom:6px;font-weight:600;color:#2c3a52}
+  .contact{
+    background:var(--ink);color:#fff;border-radius:20px;padding:30px 26px;text-align:center;margin-top:8px;
+  }
+  .contact h2{color:#fff;font-size:1.25rem;margin-bottom:8px}
+  .contact p{font-weight:600;opacity:.92;margin-bottom:14px}
+  .contact a.mail{
+    display:inline-block;background:var(--mint);color:var(--ink);text-decoration:none;
+    font-weight:800;border-radius:12px;padding:11px 22px;
+  }
+  .contact a.mail:hover{background:#17dcb1}
+  @media (max-width:520px){.faq{padding:22px 18px 12px}}
+
+  footer{background:#fff;padding:30px 0 40px;border-top:1px solid #dcebe2}
+  .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;max-width:1040px;margin:0 auto;padding:0 20px;font-size:.92rem;font-weight:600}
+  .foot a{color:#3c4a60;text-decoration:none;margin-right:18px}
+  .foot a:hover{color:var(--mint-dark);text-decoration:underline}
+  .foot .copyright{color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav" aria-label="Main">
+    <a class="wordmark" href="index.html">mula<span>.money</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+  <h1>Support 🐮</h1>
+  <p class="lede">Quick answers first, a friendly human after that.</p>
+
+  <div class="faq">
+    <h2><span class="em" aria-hidden="true">🌱</span>Getting started</h2>
+    <p>Setup takes about 30 seconds. Open the app, pick a goal (a trip, a cushion, paying off debt, whatever fits), and you're in.</p>
+    <ul>
+      <li>Log your first expense by tapping <strong>+</strong> and typing something like "12 lunch". Penny fills in the rest.</li>
+      <li>Your safe-to-spend number appears on Home and updates as you log.</li>
+      <li>There is no account to create and nothing to connect. Mula never asks for a bank login.</li>
+    </ul>
+  </div>
+
+  <div class="faq">
+    <h2><span class="em" aria-hidden="true">📸</span>Scanning tips</h2>
+    <p>Penny reads receipts and bank screenshots right on your phone. To get the cleanest reads:</p>
+    <ul>
+      <li>Good light helps most. Flatten crumpled receipts and hold the phone steady.</li>
+      <li>Make sure the amounts are in the frame. The total matters more than the logo.</li>
+      <li>For bank screenshots, capture the transaction list straight from your banking app. Cropping out headers and ads helps.</li>
+      <li>Penny shows you everything she found before saving. Review the list, fix anything, then confirm.</li>
+      <li>If a scan comes up empty, try again with better light, or just type it. "40 groceries" works fine.</li>
+    </ul>
+  </div>
+
+  <div class="faq">
+    <h2><span class="em" aria-hidden="true">💾</span>Backup and export</h2>
+    <p>Your data lives only on your phone, so your backup is in your hands too.</p>
+    <ol>
+      <li>Go to <strong>Me, then Backup</strong> and tap <strong>Export backup</strong>.</li>
+      <li>Mula creates an encrypted backup file and opens the share sheet.</li>
+      <li>Save it anywhere you trust: the Files app, AirDrop to your Mac, or your own cloud drive.</li>
+      <li>To restore, tap <strong>Import backup</strong> on a new phone or a fresh install and pick your file. Restoring merges your data and never wipes what's already there.</li>
+    </ol>
+    <p>Do this before switching phones or deleting the app. We cannot recover your data for you, because we never have it.</p>
+  </div>
+
+  <div class="faq">
+    <h2><span class="em" aria-hidden="true">💳</span>Subscriptions</h2>
+    <p>Mula is free to start. Mula Plus and Mula Pro are optional subscriptions billed through Apple. You can subscribe, manage, or cancel anytime in your Apple account settings, and cancellation always sticks. No tricks.</p>
+  </div>
+
+  <div class="contact">
+    <h2>Still stuck?</h2>
+    <p>Email us what happened, with a screenshot or two if you can. In the app, <strong>Me, then Get help</strong> can create a diagnostic log to attach. Nothing is ever sent unless you send it.</p>
+    <a class="mail" href="mailto:help@mula.money">Email help@mula.money</a>
+  </div>
+</main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy policy</a>
+      <a href="mailto:penny@mula.money">penny@mula.money</a>
+    </div>
+    <div class="copyright">&copy; 2026 Mula</div>
+  </div>
+</footer>
+
+</body>
+</html>

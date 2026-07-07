@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mula. Run your money, so it doesn't run you.</title>
+<meta name="description" content="Mula is a private money helper for iPhone. Snap a receipt, Penny sorts it, and you always know what's safe to spend. No bank login. Your data never leaves your phone.">
+<style>
+  :root{
+    --mint:#13C29B; --mint-dark:#0FA585; --mint-soft:#D8F4EC;
+    --ink:#16223A; --muted:#82909f; --coral:#FF8A66;
+    --bg:#EAF3EE; --card:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Nunito','Baloo 2',ui-rounded,-apple-system,'SF Pro Rounded','Segoe UI',system-ui,sans-serif;
+    color:var(--ink); background:var(--bg); line-height:1.6;
+  }
+  h1,h2,h3,.wordmark{font-family:'Baloo 2','Nunito',ui-rounded,-apple-system,system-ui,sans-serif;font-weight:800;line-height:1.15}
+  a{color:var(--mint-dark)}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+  /* header */
+  header{padding:18px 0}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .wordmark{font-size:1.6rem;color:var(--mint);text-decoration:none;letter-spacing:.5px}
+  .wordmark span{color:var(--ink)}
+  .nav-links{display:flex;gap:22px;font-weight:700;font-size:.95rem}
+  .nav-links a{color:var(--ink);text-decoration:none}
+  .nav-links a:hover{color:var(--mint-dark)}
+
+  /* hero */
+  .hero{
+    background:linear-gradient(160deg,#eafff8 0%,var(--mint-soft) 35%,var(--mint) 130%);
+    border-radius:28px; margin:8px auto 56px; max-width:1040px;
+    padding:56px 20px 0; overflow:hidden;
+  }
+  .hero-inner{display:flex;align-items:flex-end;gap:40px;flex-wrap:wrap;justify-content:center;max-width:960px;margin:0 auto}
+  .hero-copy{flex:1 1 380px;padding-bottom:56px}
+  .hero-copy .cow{font-size:2.2rem}
+  .hero-copy h1{font-size:clamp(2rem,4.6vw,3.1rem);margin:10px 0 14px}
+  .hero-copy h1 em{font-style:normal;color:var(--mint-dark)}
+  .hero-copy p.lede{font-size:1.15rem;font-weight:600;max-width:32ch;margin-bottom:26px}
+  .badge{
+    display:inline-flex;align-items:center;gap:12px;
+    background:var(--ink);color:#fff;text-decoration:none;
+    border-radius:14px;padding:12px 22px;line-height:1.2;
+  }
+  .badge .apple{font-size:1.7rem}
+  .badge small{display:block;font-size:.68rem;font-weight:600;opacity:.85}
+  .badge strong{font-size:1.05rem;font-family:'Baloo 2',ui-rounded,system-ui,sans-serif}
+  .badge:hover{background:#22314f}
+  .hero-note{margin-top:14px;font-size:.85rem;font-weight:700;color:var(--ink);opacity:.75}
+
+  /* phone mockup */
+  .phone{
+    flex:0 0 auto;width:270px;background:var(--ink);border-radius:38px 38px 0 0;
+    padding:12px 12px 0;box-shadow:0 24px 60px rgba(22,34,58,.28);
+  }
+  .screen{background:#f7fbf9;border-radius:28px 28px 0 0;padding:20px 16px 26px;min-height:380px}
+  .screen .stitle{font-size:.72rem;font-weight:800;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+  .screen .big{font-family:'Baloo 2',ui-rounded,system-ui,sans-serif;font-size:2.3rem;font-weight:800;color:var(--mint-dark);margin:2px 0 4px}
+  .screen .sub{font-size:.8rem;font-weight:700;color:var(--muted);margin-bottom:14px}
+  .row{display:flex;justify-content:space-between;align-items:center;background:#fff;border-radius:14px;padding:10px 12px;margin-bottom:8px;font-size:.82rem;font-weight:700}
+  .row .amt{color:var(--ink)}
+  .row .amt.in{color:var(--mint-dark)}
+  .chip{display:inline-block;background:var(--mint-soft);color:var(--mint-dark);border-radius:999px;padding:3px 10px;font-size:.7rem;font-weight:800;margin-top:10px}
+
+  /* sections */
+  section{padding:8px 0 56px}
+  .kicker{color:var(--coral);font-weight:800;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase}
+  h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:6px 0 26px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+  .card{background:var(--card);border-radius:20px;padding:26px 22px;box-shadow:0 6px 24px rgba(22,34,58,.06)}
+  .card .icon{font-size:1.9rem}
+  .card h3{font-size:1.15rem;margin:10px 0 8px}
+  .card p{font-size:.95rem;color:#3c4a60;font-weight:600}
+
+  /* privacy banner */
+  .privacy-banner{
+    background:var(--ink);color:#fff;border-radius:24px;
+    padding:44px 28px;text-align:center;margin-bottom:56px;
+  }
+  .privacy-banner h2{color:#fff;margin-bottom:10px}
+  .privacy-banner h2 .lock{color:var(--mint)}
+  .privacy-banner p{max-width:56ch;margin:0 auto 18px;font-weight:600;opacity:.92}
+  .privacy-banner a.plink{
+    display:inline-block;background:var(--mint);color:var(--ink);text-decoration:none;
+    font-weight:800;border-radius:12px;padding:11px 22px;
+  }
+  .privacy-banner a.plink:hover{background:#17dcb1}
+
+  /* footer */
+  footer{background:#fff;padding:34px 0 44px;border-top:1px solid #dcebe2}
+  .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
+  .foot .col p, .foot .col a{font-size:.92rem;font-weight:600;color:#3c4a60;text-decoration:none;display:block;margin-bottom:6px}
+  .foot .col a:hover{color:var(--mint-dark);text-decoration:underline}
+  .copyright{margin-top:24px;font-size:.85rem;color:var(--muted);font-weight:600}
+
+  @media (max-width:640px){
+    .hero{padding-top:40px;border-radius:0;margin-top:0}
+    .hero-copy{padding-bottom:36px}
+    .phone{width:230px}
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <nav class="nav" aria-label="Main">
+    <a class="wordmark" href="index.html">mula<span>.money</span></a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="support.html">Support</a>
+    </div>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="cow" aria-hidden="true">🐮</div>
+      <h1>Run your money, <em>so it doesn't run you.</em></h1>
+      <p class="lede">Meet Penny, your intuitive money helper. Snap a receipt, she sorts it, and you always know what's safe to spend.</p>
+      <!-- data-testflight: while in beta, replace href="#" below with the public TestFlight link
+           (e.g. https://testflight.apple.com/join/XXXXXXXX) and change the badge text to
+           "Join the beta on TestFlight". Swap back to the App Store URL at launch. -->
+      <a class="badge" href="#" data-testflight aria-label="Download Mula on the App Store">
+        <span class="apple" aria-hidden="true">&#63743;</span>
+        <span><small>Download on the</small><strong>App Store</strong></span>
+      </a>
+      <p class="hero-note">Free to start. No bank login. Ever.</p>
+    </div>
+
+    <!-- Phone mockup placeholder. Replace the .screen contents with a real
+         app screenshot <img> when ready (App Store Kit has 1320x2868 exports). -->
+    <div class="phone" role="img" aria-label="Preview of the Mula home screen showing the safe to spend number">
+      <div class="screen">
+        <div class="stitle">Safe to spend this month</div>
+        <div class="big">$487</div>
+        <div class="sub">You're on track. Nice and steady.</div>
+        <div class="row"><span>&#127853; Corner Market</span><span class="amt">-$12.40</span></div>
+        <div class="row"><span>&#9981; Gas</span><span class="amt">-$38.00</span></div>
+        <div class="row"><span>&#128176; Payday</span><span class="amt in">+$1,240.00</span></div>
+        <span class="chip">🐮 Penny sorted 3 for you</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section id="features">
+    <p class="kicker">What Penny does</p>
+    <h2>Less stress, more mula.</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="icon" aria-hidden="true">📸</div>
+        <h3>Snap it, Penny sorts it</h3>
+        <p>Point your camera at a receipt or a bank screenshot. Penny reads it right on your phone and files each charge for you. No typing, no uploading.</p>
+      </div>
+      <div class="card">
+        <div class="icon" aria-hidden="true">🌱</div>
+        <h3>One honest number</h3>
+        <p>Safe to spend, front and center. Penny does the math behind the scenes so you can check in for two seconds and get on with your day.</p>
+      </div>
+      <div class="card">
+        <div class="icon" aria-hidden="true">🧭</div>
+        <h3>Can I afford it?</h3>
+        <p>Test a purchase or a loan before you commit. Penny gives you a real plan: the monthly amount, the payoff timeline, and a plain verdict.</p>
+      </div>
+      <div class="card">
+        <div class="icon" aria-hidden="true">🐮</div>
+        <h3>Penny, not a lecture</h3>
+        <p>Overspent this week? Penny never scolds. She just helps you rebalance and hop back on track, at your own pace.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy" class="privacy-banner">
+    <h2><span class="lock" aria-hidden="true">&#128274;</span> Your money data never leaves your phone.</h2>
+    <p>No accounts. No bank logins. No cloud. No analytics, no ads, no trackers. Everything lives on your device, and you can export your own encrypted backup anytime. That's the whole design.</p>
+    <a class="plink" href="privacy.html">Read the privacy policy</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="col">
+        <a class="wordmark" href="index.html">mula<span>.money</span></a>
+        <p>An intuitive money helper for iPhone.</p>
+      </div>
+      <div class="col">
+        <a href="support.html">Support and FAQ</a>
+        <a href="privacy.html">Privacy policy</a>
+      </div>
+      <div class="col">
+        <a href="mailto:penny@mula.money">penny@mula.money</a>
+        <a href="mailto:help@mula.money">help@mula.money</a>
+      </div>
+    </div>
+    <p class="copyright">&copy; 2026 The Mula Team. Mula is a budgeting tool and does not provide financial advice.</p>
+  </div>
+</footer>
+
+</body>
+</html>
